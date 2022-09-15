@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Application.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -24,42 +11,19 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
-      },
-      "Infraestructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Application": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Infraestructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Infraestructure.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Application/1.0.0": {
-      "type": "project",
-      "path": "../Application/Application.csproj",
-      "msbuildProject": "../Application/Application.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
-    },
-    "Infraestructure/1.0.0": {
-      "type": "project",
-      "path": "../Infraestructure/Infraestructure.csproj",
-      "msbuildProject": "../Infraestructure/Infraestructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Infraestructure >= 1.0.0"
+      "Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -68,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\ECommerce\\Ecommerce.csproj",
-      "projectName": "Ecommerce",
-      "projectPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\ECommerce\\Ecommerce.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Application\\Application.csproj",
+      "projectName": "Application",
+      "projectPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\ECommerce\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Infraestructure\\Infraestructure.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Infraestructure\\Infraestructure.csproj"
+            "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\ECommerce\\Domain\\Domain.csproj"
             }
           }
         }
