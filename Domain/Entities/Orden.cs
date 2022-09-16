@@ -10,6 +10,7 @@ namespace Domain.Entities
 {
     public class Orden
     {
+        [Key]
         public int OrdenId { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }

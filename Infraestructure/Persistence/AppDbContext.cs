@@ -27,8 +27,8 @@ namespace Infraestructure.Persistence
                 entity.HasKey(c => c.CarritoId);
                 entity.Property(t => t.CarritoId).ValueGeneratedOnAdd();
                 entity.HasOne<Cliente>(cli => cli.Cliente)
-                .WithMany(ad => ad.Carritos)
-                .HasForeignKey(ad => ad.ClienteId);
+                .WithOne(ad => ad.Carrito)
+                .HasForeignKey<Cliente>(ad => ad.ClienteId);
             });
 
             modelBuilder.Entity<Cliente>(entity =>

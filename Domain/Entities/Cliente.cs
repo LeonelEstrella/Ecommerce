@@ -9,6 +9,7 @@ namespace Domain.Entities
 {
     public class Cliente
     {
+        [Key]
         public int ClienteId { get; set; }
 
         [MaxLength(10)]
@@ -23,6 +24,6 @@ namespace Domain.Entities
 
         [MaxLength(13)]
         public string Telefono { get; set; }
-        public ICollection<Carrito> Carritos { get; set; }
+        public Carrito Carrito { get; set; }
     }
 }

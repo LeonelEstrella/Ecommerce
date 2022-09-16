@@ -10,6 +10,7 @@ namespace Domain.Entities
 {
     public class Carrito
     {
+        [Key]
         public int CarritoId { get; set; }
         public byte Estado { get; set; }
         public Cliente ClienteId { get; set; }
