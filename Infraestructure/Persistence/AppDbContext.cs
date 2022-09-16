@@ -26,9 +26,9 @@ namespace Infraestructure.Persistence
                 entity.ToTable("Carrito");
                 entity.HasKey(c => c.CarritoId);
                 entity.Property(t => t.CarritoId).ValueGeneratedOnAdd();
-                entity.HasOne<Cliente>(cli => cli.ClienteId)
-                .WithOne(ad => ad.Carrito)
-                .HasForeignKey<Cliente>(ad => ad.ClienteId);
+                entity.HasOne<Cliente>(cli => cli.Cliente)
+                .WithMany(ad => ad.Carritos)
+                .HasForeignKey(ad => ad.ClienteId);
             });
 
             modelBuilder.Entity<Cliente>(entity =>
@@ -48,9 +48,9 @@ namespace Infraestructure.Persistence
                 entity.ToTable("Orden");
                 entity.HasKey(c => c.OrdenId);
                 entity.Property(t => t.OrdenId).ValueGeneratedOnAdd();
-                entity.HasOne<Carrito>(car => car.CarritoId)
+                entity.HasOne<Carrito>(car => car.Carrito)
                 .WithOne(ad => ad.Orden)
-                .HasForeignKey<Carrito>(ad => ad.ClienteId);
+                .HasForeignKey<Carrito>(ad => ad.CarritoId);
             });
 
             modelBuilder.Entity<CarritoProducto>( entity =>

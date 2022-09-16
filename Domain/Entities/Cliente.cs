@@ -23,6 +23,6 @@ namespace Domain.Entities
 
         [MaxLength(13)]
         public string Telefono { get; set; }
-        public Carrito Carrito { get; set; }
+        public ICollection<Carrito> Carritos { get; set; }
     }
 }
