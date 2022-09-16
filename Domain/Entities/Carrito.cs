@@ -13,7 +13,7 @@ namespace Domain.Entities
         [Key]
         public int CarritoId { get; set; }
         public byte Estado { get; set; }
-        public Cliente ClienteId { get; set; }
+        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
         public Orden Orden { get; set; }
         public IList<CarritoProducto> CarritoProductos { get; set; }

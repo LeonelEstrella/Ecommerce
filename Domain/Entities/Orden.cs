@@ -14,7 +14,7 @@ namespace Domain.Entities
         public int OrdenId { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }
-        public Carrito CarritoId { get; set; }
+        public int CarritoId { get; set; }
         public Carrito Carrito { get; set; }
     }
 }
