@@ -10,33 +10,17 @@ namespace Infraestructure.Persistence
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Carrito> Carritos { get; set; }
-        public DbSet<CarritoProducto> CarritoProductos { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Orden> Ordens { get; set; }
-        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Carrito> Carrito { get; set; }
+        public DbSet<CarritoProducto> CarritoProducto { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Orden> Orden { get; set; }
+        public DbSet<Producto> Producto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Ecommerce;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Carrito>( entity =>
-            {
-                entity.ToTable("Carrito");
-                entity.HasKey(c => c.CarritoId);
-                entity.Property(t => t.CarritoId).ValueGeneratedOnAdd();
-                entity.HasOne<Cliente>(cli => cli.Cliente)
-                .WithOne(ad => ad.Carrito)
-                .HasForeignKey<Cliente>(ad => ad.ClienteId);
-            });
-
-            modelBuilder.Entity<Cliente>(entity =>
-            {
-                entity.HasKey(entity => entity.ClienteId);
-                entity.Property(t => t.ClienteId).ValueGeneratedOnAdd();
-            });
-
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(entity => entity.ProductoId);
@@ -46,11 +30,28 @@ namespace Infraestructure.Persistence
             modelBuilder.Entity<Orden>(entity =>
             {
                 entity.ToTable("Orden");
-                entity.HasKey(c => c.OrdenId);
+                entity.HasKey(entity => entity.OrdenId);
                 entity.Property(t => t.OrdenId).ValueGeneratedOnAdd();
-                entity.HasOne<Carrito>(car => car.Carrito)
-                .WithOne(ad => ad.Orden)
-                .HasForeignKey<Carrito>(ad => ad.CarritoId);
+            });
+
+            modelBuilder.Entity<Cliente>(entity =>
+            {
+                entity.ToTable("Cliente");
+                entity.HasKey(c => c.ClienteId);
+                entity.Property(t => t.ClienteId).ValueGeneratedOnAdd();
+                entity.HasOne<Carrito>(cli => cli.Carrito)
+                .WithOne(ad => ad.Cliente)
+                .HasForeignKey<Carrito>(ad => ad.ClienteId);
+            });
+
+            modelBuilder.Entity<Carrito>(entity =>
+            {
+                entity.ToTable("Carrito");
+                entity.HasKey(c => c.CarritoId);
+                entity.Property(t => t.CarritoId).ValueGeneratedOnAdd();
+                entity.HasOne<Orden>(car => car.Orden)
+                .WithOne(ad => ad.Carrito)
+                .HasForeignKey<Orden>(ad => ad.OrdenId);
             });
 
             modelBuilder.Entity<CarritoProducto>( entity =>
