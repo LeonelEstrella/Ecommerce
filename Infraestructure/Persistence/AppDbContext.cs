@@ -17,7 +17,7 @@ namespace Infraestructure.Persistence
         public DbSet<Producto> Producto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Ecommerce;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-B2NSQ64;Database=Ecommerce;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
