@@ -15,6 +15,7 @@ namespace Infraestructure.Persistence
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Orden> Orden { get; set; }
         public DbSet<Producto> Producto { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-B2NSQ64;Database=Ecommerce;Trusted_Connection=True;");

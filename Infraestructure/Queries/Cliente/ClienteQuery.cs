@@ -1,10 +1,19 @@
 ﻿using Application.Interfaces.Query;
+using Domain.Entities;
+using Infraestructure.Persistence;
 
-namespace Infraestructure.Queries.Cliente
+namespace Infraestructure.Queries
 {
     public class ClienteQuery : IClienteQuery
     {
-        public Domain.Entities.Cliente GetClienteById(int clienteId)
+        private readonly AppDbContext _context;
+
+        public ClienteQuery(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public Cliente GetClienteById(int clienteId)
         {
             throw new NotImplementedException();
         }

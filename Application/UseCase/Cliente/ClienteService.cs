@@ -10,12 +10,6 @@ namespace Application.UseCase
         private readonly IClienteCommand _command;
         private readonly IClienteQuery _query;
 
-        public ClienteService()
-            //:this ()
-        {
-               
-        }
-
         public ClienteService(IClienteCommand clienteCommand, IClienteQuery clienteQuery)
         {
             _command = clienteCommand;
@@ -25,8 +19,7 @@ namespace Application.UseCase
         public async Task<Cliente> CreateCliente(Cliente cliente)
         {
             _command.InsertCliente(cliente);
-            return cliente;//esto hay que sacarlo
-            //throw new NotImplementedException();
+            return cliente;
         }
 
         public Task<Cliente> GetClienteById(int clientId)
